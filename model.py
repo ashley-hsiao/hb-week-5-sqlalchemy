@@ -16,14 +16,40 @@ class Model(db.Model):
     """Car model."""
 
     __tablename__ = "models"
-    pass
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    year = db.Column(db.Integer, nullable=False)
+    brand_name = db.Column(db.String(50), db.ForeignKey('brands.name'), nullable=True)
+    name = db.Column(db.String(50), nullable=False)
+    # Note to self: nullable=False means not null
+
+    # Define relationship to brand
+    brand = db.relationship("Brand")
+
+    def __repr__(self):
+        """Provide helpful representation when printed."""
+
+        return "<Model id=%s year=%s>" % (self.id, self.year)
 
 
 class Brand(db.Model):
     """Car brand."""
 
     __tablename__ = "brands"
-    pass
+
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    founded = db.Column(db.Integer, nullable=True)
+    headquarters = db.Column(db.String(50), nullable=True)
+    discontinued = db.Column(db.Integer, nullable=True)
+
+    # Define relationship to brand
+    models = db.relationship("Model")
+
+    def __repr__(self):
+        """Provide helpful representation when printed."""
+
+        return "<Brand id=%s name=%s>" % (self.id, self.name)
+
 
 
 # End Part 1
