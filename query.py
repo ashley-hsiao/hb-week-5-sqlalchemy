@@ -102,12 +102,11 @@ def get_brands_summary():
 # 2. In your own words, what is an association table, and what *type* of relationship
 # does an association table manage?
 
-# An association table is a table whose main purpose is to link two tables together.
-# For instance, if there are two tables that linked together, creates a Many to Many
-# relationship, then it will need an association table in between to make the One to
-# Many relationship. The two tables can access each other's information through the
-# association table.
-
+# An association table is a table whose main purpose is to link two tables together,
+# helping to manage the Many to Many relationship between these two tables. It serves
+# as the connection between the two tables, so that the relationships can be One to
+# Many, and the two tables can access each other's information through the association
+# table.
 
 # -------------------------------------------------------------------
 # Part 3
